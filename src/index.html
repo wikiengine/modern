@@ -2,7 +2,7 @@
     Loading...
 </div>
 <div id="content">
-    <script>
+    <script nonce="<%=cspNonce%>">
     //콘텐츠 불러오기
     const parser = new DOMParser();
     const doc = parser.parseFromString("<%=contentHtml%>", "text/html");
