@@ -6,7 +6,8 @@ import vitePluginBundleObfuscator from 'vite-plugin-bundle-obfuscator';
 export default defineConfig({
   plugins: [
     vue(),
-    vitePluginBundleObfuscator()
+    //난독화 옵션
+    //vitePluginBundleObfuscator()
   ],
   root: "src",
   build: {
