@@ -1,6 +1,6 @@
 import { createApp, reactive } from 'vue'
 import App from './App.vue'
-import Content from "./Content.vue"
+import ContentHtml from './ContentHtml.vue';
 
 const app = createApp(App)
 
@@ -11,6 +11,6 @@ app.config.globalProperties.page = reactive(window.page);
 app.config.globalProperties.session = window.session;
 app.config.globalProperties.CONFIG = window.CONFIG;
 
-app.component("content", Content)
+app.component("content-html", ContentHtml)
 
 app.mount('#viteprovider')
