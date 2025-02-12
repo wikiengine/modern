@@ -1,16 +1,17 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vitePluginBundleObfuscator from 'vite-plugin-bundle-obfuscator';
+import { svelte } from '@sveltejs/vite-plugin-svelte'
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    //난독화 옵션
-    //vitePluginBundleObfuscator()
-  ],
-  root: "src",
+  plugins: [svelte()],
+  resolve: {
+    alias: {
+      $lib: path.resolve("./src/lib"),
+    },
+  },
   build: {
     outDir: "../",
-  }
+  },
+  root: "src",
 })

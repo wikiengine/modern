@@ -1,16 +1,9 @@
-import { createApp, reactive } from 'vue'
-import App from './App.vue'
-import ContentHtml from './ContentHtml.vue';
+import { mount } from 'svelte'
+import './app.css'
+import App from './App.svelte'
 
-const app = createApp(App)
+const app = mount(App, {
+  target: document.getElementById('modern'),
+})
 
-//전역변수
-app.config.globalProperties.contentHtml = reactive(window.contentHtml);
-app.config.globalProperties.page = reactive(window.page);
-//반응형 필요없음
-app.config.globalProperties.session = window.session;
-app.config.globalProperties.CONFIG = window.CONFIG;
-
-app.component("content-html", ContentHtml)
-
-app.mount('#viteprovider')
+export default app

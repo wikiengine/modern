@@ -1,12 +1,10 @@
-<div id="viteprovider">
-    Loading...
-</div>
-<div id="content">
-    <script nonce="<%=cspNonce%>">
-    //콘텐츠 불러오기
-    const parser = new DOMParser();
-    const doc = parser.parseFromString("<%=contentHtml%>", "text/html");
-    window.contentHtml = doc.documentElement.textContent;
-    </script>
-</div>
+<div id="modern"></div>
 <script type="module" src="./main.js"></script>
+<div id="content">
+  <script nonce="<%=cspNonce%>">
+  //콘텐츠 불러오기
+  const parser = new DOMParser();
+  const doc = parser.parseFromString("<%=contentHtml%>", "text/html");
+  window.contentHtml = doc.documentElement.textContent;
+  </script>
+</div>

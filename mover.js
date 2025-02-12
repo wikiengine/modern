@@ -1,3 +1,4 @@
+
 import { promises as fs } from "fs";
 import chalk from "chalk";
 
@@ -6,7 +7,7 @@ const html = "index.html";
 //ejs
 const ejs = "layout.ejs";
 //스킨 폴더명과 같아야함
-const skinName = "vue";
+const skinName = "shasv";
 
 async function modifyAndRenameFile() {
   try {
