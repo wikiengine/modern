@@ -1,0 +1,46 @@
+<%for(let setting of [
+    {
+        name: 'sidebar',
+        label: '사이드바 설정',
+        type: 'enum',
+        defaultValue: req.useragent.isMobile ? 'hide' : 'right',
+        options: [
+            {
+                name: 'fix',
+                label: '고정'
+            },
+            {
+                name: 'hide',
+                label: '숨김'
+            },
+            {
+                name: 'right',
+                label: '우측 표시'
+            },
+            {
+                name: 'footer',
+                label: '하단 표시'
+            }
+        ]
+    },
+    {
+        name: 'fixed_navbar',
+        label: '내비게이션 바 고정',
+        type: 'bool',
+        defaultValue: false
+    },
+    {
+        name: 'reset_search_on_move',
+        label: '페이지 이동 시 검색 창 초기화',
+        type: 'bool',
+        defaultValue: true
+    },
+    ...(session.quick_block ? [{
+        name: 'admin_convenience',
+        label: '[ADMIN] 관리 편의성 개선',
+        type: 'bool',
+        defaultValue: true
+    }] : [])
+]) {%>
+<%-getComponent(setting)%>
+<%}%>
