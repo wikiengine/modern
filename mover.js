@@ -7,7 +7,7 @@ const html = "index.html";
 //ejs
 const ejs = "layout.ejs";
 //스킨 폴더명과 같아야함
-const skinName = "shasv";
+const skinName = "vue";
 
 async function modifyAndRenameFile() {
   try {
