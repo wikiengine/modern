@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+pre {
+  overflow-x: scroll;
+}
+
 .Modern header a {
   color: black;
 }
