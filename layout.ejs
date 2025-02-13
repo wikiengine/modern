@@ -11,43 +11,7 @@
               <nav class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                   <a href="/" class="text-2xl font-bold text-black dark:text-white"><%=config.logo_text%></a>
-                  <div class="hidden md:flex ml-6 space-x-4">
-                    <a href="/RecentChanges" class="text-md font-bold hover:text-primary flex gap-1 text-black dark:text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        최근 변경
-                    </a>
-                    <a href="/RecentDiscuss" class="text-md font-bold hover:text-primary flex gap-1 text-black dark:text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-more"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
-                        최근 토론
-                    </a>
-                    <div uk-dropnav="mode: click">
-                        <a class="text-md font-bold hover:text-primary flex gap-1 text-black dark:text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
-                            도구
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-                        </a>
-                        <div class="uk-drop uk-dropdown">
-                            <ul class="uk-dropdown-nav uk-nav">
-                                <li><a href="/NeededPages">작성이 필요한 문서</a></li>
-                                <li><a href="/OrphanedPages">고립된 문서</a></li>
-                                <li><a href="/UncategorizedPages">분류가 되지 않은 문서</a></li>
-                                <li><a href="/OldPages">편집된 지 오래된 문서</a></li>
-                                <li><a href="/ShortestPages">내용이 짧은 문서</a></li>
-                                <li><a href="/LongestPages">내용이 긴 문서</a></li>
-                                <li><a href="/BlockHistory">차단 내역</a></li>
-                                <li><a href="/RandomPage">RandomPage</a></li>
-                                <li><a href="/Upload">파일 올리기</a></li>
-                                <li><a href="/License">라이선스</a></li>
-                                <% if (session.menus.length) { %>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <% for (let m of session.menus) { %>
-                                        <li><a href="<%=m.l%>"><%=m.t%></a></li>
-                                    <% } %>
-                                <% } %>
-                            </ul>
-                        </div>
-                    </div>
-                  </div>
+                  <%-include('./layouts/links')%>
                 </div>
                 <div class="flex items-center space-x-4">
                     <!--검색-->
