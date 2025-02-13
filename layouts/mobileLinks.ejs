@@ -1,37 +1,48 @@
 <div id="offcanvas-flip" data-uk-offcanvas="flip: true; overlay: true">
     <div class="uk-offcanvas-bar p-4">
         <button
-        class="uk-offcanvas-close absolute right-4 top-4"
-        type="button"
-        data-uk-close
+            class="uk-offcanvas-close absolute right-4 top-4"
+            type="button"
+            data-uk-close
         ></button>
+        
         <h3 class="uk-h3">메뉴</h3>
         <div class="flex flex-col space-y-4 mt-4">
             <ul class="uk-nav uk-nav-default">
-                <li class="uk-active"><a href="/RecentChanges">최근 변경</a></li>
-                <li class="uk-active"><a href="/RecanteDiscuss">최근 토론</a></li>
+                <li class="uk-active"><a href="/RecentChanges" class="offcanvas-close">최근 변경</a></li>
+                <li class="uk-active"><a href="/RecanteDiscuss" class="offcanvas-close">최근 토론</a></li>
                 <li class="uk-active uk-parent">
-                  <a href="#">도구</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="/NeededPages">작성이 필요한 문서</a></li>
-                    <li><a href="/OrphanedPages">고립된 문서</a></li>
-                    <li><a href="/UncategorizedPages">분류가 되지 않은 문서</a></li>
-                    <li><a href="/OldPages">편집된 지 오래된 문서</a></li>
-                    <li><a href="/ShortestPages">내용이 짧은 문서</a></li>
-                    <li><a href="/LongestPages">내용이 긴 문서</a></li>
-                    <li><a href="/BlockHistory">차단 내역</a></li>
-                    <li><a href="/RandomPage">RandomPage</a></li>
-                    <li><a href="/Upload">파일 올리기</a></li>
-                    <li><a href="/License">라이선스</a></li>
-                    <% if (session.menus.length) { %>
-                        <li><hr class="dropdown-divider"></li>
-                        <% for (let m of session.menus) { %>
-                            <li><a href="<%=m.l%>"><%=m.t%></a></li>
+                    <a href="#">도구</a>
+                    <ul class="uk-nav-sub">
+                        <li><a href="/NeededPages" class="offcanvas-close">작성이 필요한 문서</a></li>
+                        <li><a href="/OrphanedPages" class="offcanvas-close">고립된 문서</a></li>
+                        <li><a href="/UncategorizedPages" class="offcanvas-close">분류가 되지 않은 문서</a></li>
+                        <li><a href="/OldPages" class="offcanvas-close">편집된 지 오래된 문서</a></li>
+                        <li><a href="/ShortestPages" class="offcanvas-close">내용이 짧은 문서</a></li>
+                        <li><a href="/LongestPages" class="offcanvas-close">내용이 긴 문서</a></li>
+                        <li><a href="/BlockHistory" class="offcanvas-close">차단 내역</a></li>
+                        <li><a href="/RandomPage" class="offcanvas-close">RandomPage</a></li>
+                        <li><a href="/Upload" class="offcanvas-close">파일 올리기</a></li>
+                        <li><a href="/License" class="offcanvas-close">라이선스</a></li>
+                        <% if (session.menus.length) { %>
+                            <li><hr class="dropdown-divider"></li>
+                            <% for (let m of session.menus) { %>
+                                <li><a href="<%=m.l%>" class="offcanvas-close"><%=m.t%></a></li>
+                            <% } %>
                         <% } %>
-                    <% } %>
-                  </ul>
+                    </ul>
                 </li>
-              </ul>
+            </ul>
         </div>
     </div>
 </div>
+
+<script nonce="<%=cspNonce%>">
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".offcanvas-close").forEach(link => {
+            link.addEventListener("click", () => {
+                UIkit.offcanvas("#offcanvas-flip").hide();
+            });
+        });
+    });
+</script>
