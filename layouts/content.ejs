@@ -18,9 +18,7 @@
             <%if(page.viewName === 'license') {%>
                 <div class="mt-3">
                   <h2>Modern License</h2>
-                  <pre>
-                    hi
-                  </pre>
+                  <pre><%=getSkinFile('LICENSE')%></pre>
                 </div>
             <%}%>
             <%if(page.viewName === 'wiki' && page.data.date) {%>

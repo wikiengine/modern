@@ -1,0 +1,61 @@
+<%
+const requestable = page.data.editable === true && !!page.data.edit_acl_message && page.viewName !== 'notfound';
+%>
+<!--공지-->
+<%if(config.sitenotice) {%>
+    <div class="hs-removing:-translate-y-full bg-yellow-400 dark:bg-yellow-600">
+        <div class="max-w-[85rem] px-2 py-2 sm:px-6 lg:px-8 mx-auto">
+        <div class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-megaphone"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+            &nbsp;
+            <p class="text-white text-m"><%-config.sitenotice%></p>
+        </div>
+        </div>
+    </div>
+<%}%>
+<!--ACL 편집요청-->
+<%if(page.data.edit_acl_message) {%>
+    <div class="hs-removing:-translate-y-full bg-red-600 dark:bg-red-700" x-cloak x-show="$store.skin.isShowACLMessage">
+        <div class="max-w-[85rem] px-2 py-2 sm:px-6 lg:px-8 mx-auto">
+        <div class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-message-circle-more"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+            &nbsp;
+            <span><%-page.data.edit_acl_message%></span>
+            <%if(requestable) {%><span><%if(page.data.edit_acl_message.includes('<br>')) {%><br><%}%> 대신 <a href="<%=doc_action_link(page.data.document, 'new_edit_request')%>">편집 요청</a>을 생성할 수 있습니다.</span><%}%>
+            <a @click.prevent="$store.state.setLocalConfig('wiki.hide_user_document_discuss', $store.state.session.user_document_discuss)" href="#" class="ps-3 ms-auto text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-circle-alert"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            </a>
+        </div>
+        </div>
+    </div>
+<%}%>
+<!--검색-->
+<%if(page.viewName === 'notfound' && page.data.document.namespace === '문서') {%>
+    <div class="hs-removing:-translate-y-full bg-yellow-400 dark:bg-yellow-600">
+        <div class="max-w-[85rem] px-2 py-2 sm:px-6 lg:px-8 mx-auto">
+        <div class="flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            &nbsp;
+            <p class="text-white text-m">
+                '<%=page.data.document.title%>'을(를) 검색하시겠습니까?
+                <a href="/Search?q=<%=encodeURIComponent(page.data.document.title)%>">검색</a>
+            </p>
+        </div>
+        </div>
+    </div>
+<%}%>
+<!--사용자 토론-->
+<div class="hs-removing:-translate-y-full bg-blue-700 dark:bg-blue-500" x-cloak x-show="$store.state.session.user_document_discuss && $store.state.localConfig['wiki.hide_user_document_discuss'] !== $store.state.session.user_document_discuss">
+    <div class="max-w-[85rem] px-2 py-2 sm:px-6 lg:px-8 mx-auto">
+    <div class="flex">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-message-circle-more"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+        &nbsp;
+        현재 진행 중인 <a class="text-white" href="<%=doc_action_link(user_doc(session.account.name), 'discuss')%>">사용자 토론</a>이 있습니다.
+        <a @click.prevent="$store.state.setLocalConfig('wiki.hide_user_document_discuss', $store.state.session.user_document_discuss)" href="#" class="ps-3 ms-auto text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+              <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+            </svg>
+        </a>
+    </div>
+    </div>
+</div>
