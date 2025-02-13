@@ -1,0 +1,67 @@
+<%
+let isLoggedIn = session.account.type == 1;
+%>
+<%if(session.gravatar_url) {%>
+    <button class="w-9 h-9 rounded-full flex items-center justify-center">
+        <img src="<%=session.gravatar_url%>"/>
+    </button>
+<%} else {%>
+    <button class="w-9 h-9 rounded-full bg-gray-500 text-white flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+        </svg>
+    </button>
+<%}%>
+<div class="uk-drop uk-dropdown min-w-50" data-uk-dropdown="mode: click">
+    <ul class="uk-dropdown-nav uk-nav">
+        <li class="uk-nav-header">
+            <%if (isLoggedIn) {%>
+                <b><%=session.account.name%></b><br>Member
+            <%} else {%>
+                <b><%=session.account.name%></b><br>IP
+            <%}%>
+        </li>
+        <li class="uk-nav-divider"></li>
+        <li>
+            <a href="#" class="dropdown-item" @click.prevent="$store.state.openSettingModal">설정</a>
+            <a x-show="$store.state.currentTheme === 'light'" href="#" class="dropdown-item" @click.prevent="$store.state.setLocalConfig('wiki.theme', 'dark')">
+                다크 테마로
+            </a>
+            <a x-show="$store.state.currentTheme === 'dark'" href="#" class="dropdown-item" @click.prevent="$store.state.setLocalConfig('wiki.theme', 'light')">
+                라이트 테마로
+            </a>
+        </li>
+        <li class="uk-nav-divider"></li>
+        <%if (isLoggedIn) {%>
+            <li>
+                <a href="/member/mypage" class="dropdown-item">내 정보</a>
+            </li>
+            <li>
+                <a :href="doc_action_link(user_doc($store.state.session.account.name), 'w')">내 사용자 문서</a>
+            </li>
+            <li>
+                <a href="/member/starred_documents">내 문서함</a>
+            </li> 
+            <li class="uk-nav-divider"></li>
+        <%}%>
+        <%if(session.account.uuid) {%>
+            <li>
+                <a class="dropdown-item" :href="contribution_link($store.state.session.account.uuid)">내 문서 기여 목록</a>
+            </li>
+            <li>
+                <a class="dropdown-item" :href="contribution_link_discuss($store.state.session.account.uuid)">내 토론 기여 목록</a>
+            </li>
+            <li class="uk-nav-divider"></li>
+        <%}%>
+        <%if (isLoggedIn) {%>
+            <li>
+                <a href="/member/logout" data-add-redirect>로그아웃</a>
+            </li>
+        <%} else {%>
+            <li>
+                <a href="/member/login" data-add-redirect>로그인</a>
+            </li>
+        <%}%>
+    </ul>
+</div>

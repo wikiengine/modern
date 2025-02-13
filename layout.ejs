@@ -1,0 +1,110 @@
+<style>
+    @import "/skins/<%=skin%>/css/franken.css";
+    @import "/skins/<%=skin%>/css/output.css"; 
+</style>
+<script src="/skins/<%=skin%>/js/franken.js"></script>
+<div class="Modern">
+    <!--https://github.com/wikiengine/modern-->
+    <div class="bg-neutral-100 dark:bg-neutral-900 w-full h-full">
+        <header class="border-b bg-white dark:bg-black">
+            <div class="container mx-auto px-4">
+              <nav class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                  <a href="/" class="text-2xl font-bold text-black dark:text-white"><%=config.logo_text%></a>
+                  <div class="hidden md:flex ml-6 space-x-4">
+                    <a href="/RecentChanges" class="text-md font-bold hover:text-primary flex gap-1 text-black dark:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        최근 변경
+                    </a>
+                    <a href="/RecentDiscuss" class="text-md font-bold hover:text-primary flex gap-1 text-black dark:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-more"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>
+                        최근 토론
+                    </a>
+                    <div uk-dropnav="mode: click">
+                        <a class="text-md font-bold hover:text-primary flex gap-1 text-black dark:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+                            도구
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                        </a>
+                        <div class="uk-drop uk-dropdown">
+                            <ul class="uk-dropdown-nav uk-nav">
+                                <li><a href="/NeededPages">작성이 필요한 문서</a></li>
+                                <li><a href="/OrphanedPages">고립된 문서</a></li>
+                                <li><a href="/UncategorizedPages">분류가 되지 않은 문서</a></li>
+                                <li><a href="/OldPages">편집된 지 오래된 문서</a></li>
+                                <li><a href="/ShortestPages">내용이 짧은 문서</a></li>
+                                <li><a href="/LongestPages">내용이 긴 문서</a></li>
+                                <li><a href="/BlockHistory">차단 내역</a></li>
+                                <li><a href="/RandomPage">RandomPage</a></li>
+                                <li><a href="/Upload">파일 올리기</a></li>
+                                <li><a href="/License">라이선스</a></li>
+                                <% if (session.menus.length) { %>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <% for (let m of session.menus) { %>
+                                        <li><a href="<%=m.l%>"><%=m.t%></a></li>
+                                    <% } %>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!--검색-->
+                    <button
+                    class="uk-btn uk-btn-icon uk-btn-ghost text-black dark:text-white"
+                    type="button"
+                    data-uk-toggle="target: #modal-close-default"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </button>
+                    <!--유저-->
+                    <%-include('./layouts/user')%>
+                    <!--모바일 링크-->
+                    <button
+                    class="uk-btn uk-btn-icon uk-btn-ghost md:hidden text-black dark:text-white"
+                    type="button"
+                    data-uk-toggle="target: #offcanvas-flip"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                </div>
+              </nav>
+            </div>
+        </header>
+        <%if(config.sitenotice) {%>
+            <div class="hs-removing:-translate-y-full bg-blue-500 dark:bg-blue-800">
+                <div class="max-w-[85rem] px-2 py-2 sm:px-6 lg:px-8 mx-auto">
+                <div class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-megaphone"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                    &nbsp;
+                    <p class="text-white text-m"><%-config.sitenotice%></p>
+                </div>
+                </div>
+            </div>
+        <%}%>
+        <main class="w-full" id="content">
+            <div class="flex flex-col md:flex-row gap-4 w-full">
+                <%-include('./layouts/content')%>
+                <%-include('./layouts/recentCard')%>
+            </div>
+        </main>
+        <footer>
+            <div class="bg-card text-card-foreground rounded-xl border shadow mt-4">
+                <div class="flex flex-col space-y-1.5 p-6 pb-0">
+                    <div class="font-semibold leading-none tracking-tight flex">
+                        <a class="text-black dark:text-white font-bold" href="//testwiki.hyonsu.com">the tree</a>&nbsp;|&nbsp;<a class="text-black dark:text-white font-bold" href="//github.com/wikiengine/modern">modern</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <b><%-config.copyright_text%></b>
+                    <p><%-config.footer_html%></p>
+                </div>
+            </div>
+        </footer>
+        <!--MobileMenu-->
+        <%-include('./layouts/mobileLinks')%>
+        <!--search modal-->
+        <%-include('./layouts/search')%>
+    </div>
+</div>

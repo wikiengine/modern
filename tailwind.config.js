@@ -3,8 +3,11 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 /** @type {import('tailwindcss').Config} */
 const config = {
 	darkMode: ["class", ".theseed-dark-mode"],
-	content: ["./src/**/*.{html,js,svelte,ts}"],
+	content: ["./**/*.{html,js,svelte,ts,ejs}"],
 	safelist: ["dark"],
+	corePlugins: {
+		preflight: false,
+	},
 	theme: {
 		container: {
 			center: true,
