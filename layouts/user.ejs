@@ -3,8 +3,8 @@ let isLoggedIn = session.account.type == 1;
 %>
 <%if(session.gravatar_url) {%>
     <button class="w-9 h-9 rounded-full flex items-center justify-center">
-        <img src="<%=session.gravatar_url%>"/>
-    </button>
+    <img class="rounded-full" src="<%=session.gravatar_url%>"/>
+</button>
 <%} else {%>
     <button class="w-9 h-9 rounded-full bg-gray-500 text-white flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
