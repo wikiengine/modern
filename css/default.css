@@ -4,8 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.Modern header a {
+  color: black;
+}
+
+.theseed-dark-mode .Modern header a {
+  color: white;
+}
+
 html,
 :host {
+  height: 100%;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   -moz-tab-size: 4;
@@ -17,6 +26,7 @@ html,
   -webkit-tap-highlight-color: transparent;
 }
 body {
+  height: 100%;
   margin: 0;
   font-size: var(--uk-global-font-size);
   line-height: var(--uk-global-line-height);

@@ -8,33 +8,28 @@
         <h3 class="uk-h3">메뉴</h3>
         <div class="flex flex-col space-y-4 mt-4">
             <ul class="uk-nav uk-nav-default">
-                <li class="uk-active"><a href="#">Active</a></li>
-                <li class="uk-parent">
-                  <a href="#">Parent</a>
+                <li class="uk-active"><a href="#">최근 변경</a></li>
+                <li class="uk-active"><a href="#">최근 토론</a></li>
+                <li class="uk-active uk-parent">
+                  <a href="#">도구</a>
                   <ul class="uk-nav-sub">
-                    <li><a href="#">Sub item</a></li>
-                    <li><a href="#">Sub item</a></li>
+                    <li><a href="/NeededPages">작성이 필요한 문서</a></li>
+                    <li><a href="/OrphanedPages">고립된 문서</a></li>
+                    <li><a href="/UncategorizedPages">분류가 되지 않은 문서</a></li>
+                    <li><a href="/OldPages">편집된 지 오래된 문서</a></li>
+                    <li><a href="/ShortestPages">내용이 짧은 문서</a></li>
+                    <li><a href="/LongestPages">내용이 긴 문서</a></li>
+                    <li><a href="/BlockHistory">차단 내역</a></li>
+                    <li><a href="/RandomPage">RandomPage</a></li>
+                    <li><a href="/Upload">파일 올리기</a></li>
+                    <li><a href="/License">라이선스</a></li>
+                    <% if (session.menus.length) { %>
+                        <li><hr class="dropdown-divider"></li>
+                        <% for (let m of session.menus) { %>
+                            <li><a href="<%=m.l%>"><%=m.t%></a></li>
+                        <% } %>
+                    <% } %>
                   </ul>
-                </li>
-                <li class="uk-nav-header">Header</li>
-                <li>
-                  <a href="#">
-                    <uk-icon class="mr-2" icon="table"></uk-icon>
-                    Item
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <uk-icon class="mr-2" icon="bell"></uk-icon>
-                    Item
-                  </a>
-                </li>
-                <li class="uk-nav-divider"></li>
-                <li>
-                  <a href="#">
-                    <uk-icon class="mr-2" icon="trash"></uk-icon>
-                    Item
-                  </a>
                 </li>
               </ul>
         </div>

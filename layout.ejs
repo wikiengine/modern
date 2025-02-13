@@ -5,7 +5,7 @@
 <script src="/skins/<%=skin%>/js/franken.js"></script>
 <div class="Modern">
     <!--https://github.com/wikiengine/modern-->
-    <div class="bg-neutral-100 dark:bg-neutral-900 w-full h-full">
+    <div class="bg-neutral-100 dark:bg-neutral-900 w-full min-h-screen">
         <header class="border-b bg-white dark:bg-black">
             <div class="container mx-auto px-4">
               <nav class="flex items-center justify-between h-16">
@@ -84,7 +84,7 @@
             </div>
         <%}%>
         <main class="w-full" id="content">
-            <div class="flex flex-col md:flex-row gap-4 w-full">
+            <div class="flex flex-col md:flex-row gap-4 w-full items-start">
                 <%-include('./layouts/content')%>
                 <%-include('./layouts/recentCard')%>
             </div>
