@@ -23,12 +23,11 @@
                             <p class="text-sm">자동완성</p>
                             <ul class="uk-list uk-list-divider mt-3">
                                 <template x-for="(item, i) in internalItems" :key="i">
-                                    <li class="v-autocomplete-list-item"
-																				id="close-modal"
+                                    <li class="v-autocomplete-list-item close-modal"
                                         @click="onClickItem(item)" 
                                         :class="{'v-autocomplete-item-active': i === cursor}" 
                                         @mouseover="cursor = i">
-                                        <div x-text="item"></div>
+                                        <div x-text="item" @click="UIkit.modal('#modal-close-default').hide();"></div>
                                     </li>
                                 </template>
                             </ul>
@@ -51,7 +50,7 @@
 
 <script nonce="<%=cspNonce%>">
     document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll("#close-modal").forEach(el => {
+        document.querySelectorAll(".close-modal").forEach(el => {
             el.addEventListener("click", () => {
                 UIkit.modal("#modal-close-default").hide();
             });
