@@ -24,7 +24,7 @@
                             <ul class="uk-list uk-list-divider mt-3">
                                 <template x-for="(item, i) in internalItems" :key="i">
                                     <li class="v-autocomplete-list-item"
-																				id="close"
+																				id="close-modal"
                                         @click="onClickItem(item)" 
                                         :class="{'v-autocomplete-item-active': i === cursor}" 
                                         @mouseover="cursor = i">
@@ -51,7 +51,7 @@
 
 <script nonce="<%=cspNonce%>">
     document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll("#close").forEach(el => {
+        document.querySelectorAll("#close-modal").forEach(el => {
             el.addEventListener("click", () => {
                 UIkit.modal("#modal-close-default").hide();
             });
