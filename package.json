@@ -1,12 +1,14 @@
 {
-  "name": "vue",
+  "name": "modern,
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "npx tailwindcss -i ./css/default.css -o ./css/output.css --watch",
+    "build": "npx tailwindcss -i ./css/default.css -o ./css/output.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "wikiengine",
+  "license": "GPL-3",
   "description": "",
   "devDependencies": {
     "tailwindcss": "^3.4.17"
