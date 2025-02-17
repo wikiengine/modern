@@ -1,6 +1,5 @@
 <div class="title">
     <%if(page.data.document && page.viewName !== 'error') {%>
-        <div>
             <h1 class="font-bold mb-3 md:mb-0 text-3xl">
                 <a href="<%=doc_action_link(page.data.document, 'w')%>" class="hover:underline decoration-4 decoration-zinc-500 dark:decoration-zinc-300 text-black dark:text-white">
                 <%if(page.data.document.forceShowNamespace !== true) {%><span class="text-gray-700 dark:text-gray-500"><%=page.data.document.namespace%>:</span><%}%><%=page.data.document.title%>
@@ -43,8 +42,7 @@
                 <small>(r<%=page.data.rev%> 판)</small>
                 <%}%>
             </h1>
-        </div>
     <%} else {%>
-        <h1 class="font-bold mb-3 md:mb-0 text-xl"><%=page.title%></h1>
+        <h1 class="font-bold mb-3 md:mb-0 text-3xl"><%=page.title%></h1>
     <%}%>
 </div>
