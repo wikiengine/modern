@@ -247,8 +247,8 @@ body{
   width: 100%;
 }
 
-.min-w-48{
-  min-width: 12rem;
+.min-w-40{
+  min-width: 10rem;
 }
 
 .max-w-\[85rem\]{
@@ -307,6 +307,10 @@ body{
 
 .self-end{
   align-self: flex-end;
+}
+
+.overflow-y-auto{
+  overflow-y: auto;
 }
 
 .rounded-full{

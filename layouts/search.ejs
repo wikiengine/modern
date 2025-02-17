@@ -21,7 +21,7 @@
                         
                         <div x-cloak x-show="show" class="v-autocomplete-list">
                             <p class="text-sm">자동완성</p>
-                            <ul class="uk-list uk-list-divider mt-3">
+                            <ul class="uk-list uk-list-divider mt-3 overflow-y-auto">
                                 <template x-for="(item, i) in internalItems" :key="i">
                                     <li class="v-autocomplete-list-item close-modal"
     @click="onClickItem(item); UIkit.modal('#modal-close-default').hide();" 

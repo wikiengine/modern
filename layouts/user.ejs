@@ -13,13 +13,13 @@ let isLoggedIn = session.account.type == 1;
         </svg>
     </button>
 <%}%>
-<div class="uk-drop uk-dropdown min-w-48" data-uk-dropdown="mode: click">
+<div class="uk-drop uk-dropdown min-w-40" data-uk-dropdown="mode: click">
     <ul class="uk-dropdown-nav uk-nav">
         <li class="uk-nav-header">
             <%if (isLoggedIn) {%>
                 <b class="text-xl"><%=session.account.name%></b><br>Member
             <%} else {%>
-                <b class="text-md"><%=session.account.name%></b><br>IP
+                <b class="text-xl">session.account.name%></b><br>IP
             <%}%>
         </li>
         <li class="uk-nav-divider"></li>
