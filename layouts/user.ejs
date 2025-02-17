@@ -19,7 +19,7 @@ let isLoggedIn = session.account.type == 1;
             <%if (isLoggedIn) {%>
                 <b class="text-xl"><%=session.account.name%></b><br>Member
             <%} else {%>
-                <b class="text-xl">session.account.name%></b><br>IP
+                <b class="text-xl"><%=session.account.name%></b><br>IP
             <%}%>
         </li>
         <li class="uk-nav-divider"></li>
