@@ -41,9 +41,7 @@
         <main class="w-full" id="content">
             <div class="flex flex-col md:flex-row gap-4 w-full items-start">
                 <%-include('./layouts/content')%>
-                <div x-cloak x-show="$store.state.localConfig['modern.sidebar'] == show">
-                    <%-include('./layouts/recentCard')%>
-                </div>
+                <%-include('./layouts/recentCard')%>
             </div>
         </main>
         <footer>

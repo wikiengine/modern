@@ -3,16 +3,24 @@
         name: 'sidebar',
         label: '사이드바 설정',
         type: 'enum',
-        defaultValue: 'show',
+        defaultValue: req.useragent.isMobile ? 'hide' : 'right',
         options: [
             {
-                name: 'show',
+                name: 'fix',
                 label: '고정'
             },
             {
                 name: 'hide',
                 label: '숨김'
             },
+            {
+                name: 'right',
+                label: '우측 표시'
+            },
+            {
+                name: 'footer',
+                label: '하단 표시'
+            }
         ]
     },
     {
