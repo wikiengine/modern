@@ -511,7 +511,17 @@ body{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-/*preflight*/
+pre {
+  overflow-x: scroll;
+}
+
+.Modern header a {
+  color: black;
+}
+
+.theseed-dark-mode .Modern header a {
+  color: white;
+}
 
 html,
 :host {
@@ -701,20 +711,6 @@ img,
 video {
   max-width: 100%;
   height: auto;
-}
-
-/*preflight end*/
-
-pre {
-  overflow-x: scroll;
-}
-
-.Modern header a {
-  color: black;
-}
-
-.theseed-dark-mode .Modern header a {
-  color: white;
 }
 
 #progress-bar {

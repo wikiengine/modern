@@ -4,7 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/*preflight*/
+pre {
+  overflow-x: scroll;
+}
+
+.Modern header a {
+  color: black;
+}
+
+.theseed-dark-mode .Modern header a {
+  color: white;
+}
+
 html,
 :host {
   height: 100%;
@@ -161,19 +172,6 @@ img,
 video {
   max-width: 100%;
   height: auto;
-}
-/*preflight end*/
-
-pre {
-  overflow-x: scroll;
-}
-
-.Modern header a {
-  color: black;
-}
-
-.theseed-dark-mode .Modern header a {
-  color: white;
 }
 
 #progress-bar {
