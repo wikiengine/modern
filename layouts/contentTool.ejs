@@ -43,7 +43,7 @@ const contentTool = {
           });
           this.main.push({
             to: doc_action_link(this.data.document, 'discuss'),
-            class: this.data.discuss_progress ? 'btn-discuss-progress' : null,
+            class: this.data.discuss_progress ? 'uk-btn-destructive' : null,
             title: "토론"
           });
           if (this.data.editable === true && this.data.edit_acl_message) this.main.push({
@@ -285,13 +285,13 @@ contentTool.init();
 %>
 
 <%if(contentTool.main.length) {%>
-  <div class="content-tools" :class="$store.state.getLocalConfig('liberty.admin_convenience') ? '' : 'no-admin-convenience'">
-    <div class="btn-group">
+  <div class="inline-flex rounded-lg shadow-xs">
+    <div class="uk-btn-group">
       <%for(let l of contentTool.main) {%>
         <%if(l.onclick) {%>
-          <a @click.prevent="<%=l.onclick.toString()%>" href="#" class="<%=[...'btn btn-secondary tools-btn'.split(' '), l.class].filter(a=>a).join(' ')%>"><%=l.title%><%-l.html%></a>
+          <a @click.prevent="<%=l.onclick.toString()%>" href="#" class="<%=[...'uk-btn uk-btn-sm uk-btn-default'.split(' '), l.class].filter(a=>a).join(' ')%>"><%=l.title%><%-l.html%></a>
         <%} else {%>
-          <a href="<%=l.to%>" class="<%=[...'btn btn-secondary tools-btn'.split(' '), l.class].filter(a=>a).join(' ')%>"><%=l.title%><%-l.html%></a>
+          <a href="<%=l.to%>" class="<%=[...'uk-btn uk-btn-sm uk-btn-default'.split(' '), l.class].filter(a=>a).join(' ')%>"><%=l.title%><%-l.html%></a>
         <%}%>
       <%}%>
       <%if(contentTool.menu.length) {%>

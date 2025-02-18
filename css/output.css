@@ -223,6 +223,10 @@ body{
   display: flex;
 }
 
+.inline-flex{
+  display: inline-flex;
+}
+
 .hidden{
   display: none;
 }
