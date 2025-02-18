@@ -203,6 +203,10 @@ body{
   margin-inline-start: auto;
 }
 
+.mt-0{
+  margin-top: 0px;
+}
+
 .mt-2{
   margin-top: 0.5rem;
 }
@@ -748,9 +752,9 @@ video {
   font-style: normal;
 }
 
-.hover\:bg-neutral-200:hover{
+.hover\:bg-neutral-100:hover{
   --tw-bg-opacity: 1;
-  background-color: rgb(229 229 229 / var(--tw-bg-opacity, 1));
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:underline:hover{
@@ -827,6 +831,10 @@ video {
 
   .md\:mt-4{
     margin-top: 1rem;
+  }
+
+  .md\:block{
+    display: block;
   }
 
   .md\:flex{
