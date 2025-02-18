@@ -1,37 +1,32 @@
-<div class="hidden md:flex ml-4 space-x-4">
-    <a href="/RecentChanges" class="text-md font-bold flex gap-1 items-center hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        최근 변경
+<div uk-dropnav="mode: click" id="dropdown">
+    <a href="#" @click.prevent class="text-md font-bold flex gap-1 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+        도구
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
     </a>
-    <a href="/RecentDiscuss" class="text-md font-bold flex gap-1 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-text"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
-        최근 토론
-    </a>
-    <div uk-dropnav="mode: click">
-        <a href="#" @click.prevent class="text-md font-bold flex gap-1 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
-            도구
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
-        </a>
-        <div class="uk-drop uk-dropdown">
-            <ul class="uk-dropdown-nav uk-nav">
-                <li><a href="/NeededPages" class="uk-dropdown-close">작성이 필요한 문서</a></li>
-                <li><a href="/OrphanedPages">고립된 문서</a></li>
-                <li><a href="/UncategorizedPages">분류가 되지 않은 문서</a></li>
-                <li><a href="/OldPages">편집된 지 오래된 문서</a></li>
-                <li><a href="/ShortestPages">내용이 짧은 문서</a></li>
-                <li><a href="/LongestPages">내용이 긴 문서</a></li>
-                <li><a href="/BlockHistory">차단 내역</a></li>
-                <li><a href="/RandomPage">RandomPage</a></li>
-                <li><a href="/Upload">파일 올리기</a></li>
-                <li><a href="/License">라이선스</a></li>
-                <% if (session.menus.length) { %>
-                    <li><hr class="dropdown-divider"></li>
-                    <% for (let m of session.menus) { %>
-                        <li><a href="<%=m.l%>"><%=m.t%></a></li>
-                    <% } %>
-                <% } %>
-            </ul>
-        </div>
+    <div class="uk-drop uk-dropdown">
+        <ul class="uk-dropdown-nav uk-nav">
+            <li><a href="/NeededPages" class="dropdown-link">작성이 필요한 문서</a></li>
+            <li><a href="/OrphanedPages" class="dropdown-link">고립된 문서</a></li>
+            <li><a href="/UncategorizedPages" class="dropdown-link">분류가 되지 않은 문서</a></li>
+            <li><a href="/OldPages" class="dropdown-link">편집된 지 오래된 문서</a></li>
+            <li><a href="/ShortestPages" class="dropdown-link">내용이 짧은 문서</a></li>
+            <li><a href="/LongestPages" class="dropdown-link">내용이 긴 문서</a></li>
+            <li><a href="/BlockHistory" class="dropdown-link">차단 내역</a></li>
+            <li><a href="/RandomPage" class="dropdown-link">RandomPage</a></li>
+            <li><a href="/Upload" class="dropdown-link">파일 올리기</a></li>
+            <li><a href="/License" class="dropdown-link">라이선스</a></li>
+        </ul>
     </div>
 </div>
+
+<script nonce="<%=cspNonce%>">
+document.querySelectorAll('.dropdown-link').forEach(link => {
+    link.addEventListener('click', function () {
+        const dropdown = document.querySelector('#dropdown .uk-drop');
+        if (dropdown) {
+            UIkit.drop(dropdown).hide();
+        }
+    });
+});
+</script>
