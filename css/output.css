@@ -251,8 +251,8 @@ body{
   width: 100%;
 }
 
-.min-w-40{
-  min-width: 10rem;
+.min-w-44{
+  min-width: 11rem;
 }
 
 .max-w-\[85rem\]{
@@ -411,6 +411,14 @@ body{
   padding-bottom: 0px;
 }
 
+.pl-1{
+  padding-left: 0.25rem;
+}
+
+.pl-2{
+  padding-left: 0.5rem;
+}
+
 .ps-3{
   padding-inline-start: 0.75rem;
 }
@@ -503,17 +511,7 @@ body{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-pre {
-  overflow-x: scroll;
-}
-
-.Modern header a {
-  color: black;
-}
-
-.theseed-dark-mode .Modern header a {
-  color: white;
-}
+/*preflight*/
 
 html,
 :host {
@@ -703,6 +701,24 @@ img,
 video {
   max-width: 100%;
   height: auto;
+}
+
+/*preflight end*/
+
+#content .content-style blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
+  margin: 0 0 1em 0;
+}
+
+pre {
+  overflow-x: scroll;
+}
+
+.Modern header a {
+  color: black;
+}
+
+.theseed-dark-mode .Modern header a {
+  color: white;
 }
 
 #progress-bar {
