@@ -1,4 +1,4 @@
-<div class="bg-card text-card-foreground rounded-xl border shadow w-full mt-2 md:w-3/4 md:mt-4 md:ml-4 min-h-lvh">
+<div class="bg-card text-card-foreground rounded-xl border shadow w-full mt-2 md:mt-4 md:ml-4 min-h-lvh" :class="{ 'md:w-3/4': $store.state.localConfig['modern.sidebar'] == show, 'md:mr-4': $store.state.localConfig['modern.sidebar'] === hide }">
     <div class="p-6">
         <div class="flex flex-col md:flex-row md:items-center mb-3">            
             <%-include('./title')%>
@@ -19,14 +19,6 @@
                     <h2>Modern License</h2>
                     <pre><%=getSkinFile('LICENSE')%></pre>
                 </div>
-            <%}%>
-            <%if(page.viewName === 'wiki' && page.data.date) {%>
-                <%const timeTag = getFullDateTag(page.data.date);%>
-                <%if(page.data.rev) {%>
-                    <p>이 리비전은 <%-timeTag%>에 편집되었습니다.</p>
-                <%} else {%>
-                    <p class="footer-info-lastmod">이 문서는 <%-timeTag%>에 마지막으로 편집되었습니다.</p>
-                <%}%>
             <%}%>
         </div>
     </div>

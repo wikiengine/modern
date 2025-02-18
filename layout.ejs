@@ -41,7 +41,9 @@
         <main class="w-full" id="content">
             <div class="flex flex-col md:flex-row gap-4 w-full items-start">
                 <%-include('./layouts/content')%>
-                <%-include('./layouts/recentCard')%>
+                <div x-cloak x-show="$store.state.localConfig['modern.sidebar'] == show">
+                    <%-include('./layouts/recentCard')%>
+                </div>
             </div>
         </main>
         <footer>
@@ -52,6 +54,14 @@
                     </div>
                 </div>
                 <div class="p-6">
+                    <%if(page.viewName === 'wiki' && page.data.date) {%>
+                        <%const timeTag = getFullDateTag(page.data.date);%>
+                        <%if(page.data.rev) {%>
+                            <p>이 리비전은 <%-timeTag%>에 편집되었습니다.</p>
+                        <%} else {%>
+                            <p class="footer-info-lastmod">이 문서는 <%-timeTag%>에 마지막으로 편집되었습니다.</p>
+                        <%}%>
+                    <%}%>
                     <b><%-config.copyright_text%></b>
                     <p><%-config.footer_html%></p>
                 </div>
