@@ -14,14 +14,12 @@
             </div>
             <div x-show="$store.state.recent.length > 0">
                 <template x-for="(r,i) in $store.state.recent.slice(0, <%=typeof limit === 'undefined' ? 15 : limit%>)" :key="i">
-                    <ul class="uk-list uk-list-divider">
-                        <li class="rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-900 p-1">
-                            <a class="recent-item flex justify-between items-center" :class="{ 'removed': r.status === 'delete' }" :key="r.document" :href="doc_action_link(r.document, 'w')" @click="$store.state.aClickHandler">
-                                <span x-text="r.document"></span>
-                                <p class="text-black dark:text-white"><time data-type="keep" :datetime="new Date(r.date * 1000).toISOString()" x-text="getDateStr(r.date * 1000)"></time></p>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-900 p-1">
+                        <a class="recent-item flex justify-between items-center" :class="{ 'removed': r.status === 'delete' }" :key="r.document" :href="doc_action_link(r.document, 'w')" @click="$store.state.aClickHandler">
+                            <span x-text="r.document"></span>
+                            <p class="text-black dark:text-white"><time data-type="keep" :datetime="new Date(r.date * 1000).toISOString()" x-text="getDateStr(r.date * 1000)"></time></p>
+                        </a>
+                    </div>
                 </template>
             </div>
         </div>
