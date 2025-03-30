@@ -523,7 +523,7 @@ pre {
   color: black;
 }
 
-.theseed-dark-mode .Modern header a {
+.thetree-dark-mode .Modern header a {
   color: white;
 }
 
@@ -721,11 +721,11 @@ video {
   background-color: #3B82F6;
 }
 
-.theseed-dark-mode #progress-bar {
+.thetree-dark-mode #progress-bar {
   background-color: white;
 }
 
-.theseed-dark-mode {
+.thetree-dark-mode {
   --background: 0 0% 3.9%;
   --foreground: 0 0% 98%;
   --card: 0 0% 3.9%;
@@ -767,46 +767,46 @@ video {
   text-decoration-line: underline;
 }
 
-.dark\:bg-black:is(.theseed-dark-mode *){
+.dark\:bg-black:is(.thetree-dark-mode *){
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
-.dark\:bg-blue-500:is(.theseed-dark-mode *){
+.dark\:bg-blue-500:is(.thetree-dark-mode *){
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
 }
 
-.dark\:bg-neutral-900:is(.theseed-dark-mode *){
+.dark\:bg-neutral-900:is(.thetree-dark-mode *){
   --tw-bg-opacity: 1;
   background-color: rgb(23 23 23 / var(--tw-bg-opacity, 1));
 }
 
-.dark\:bg-red-700:is(.theseed-dark-mode *){
+.dark\:bg-red-700:is(.thetree-dark-mode *){
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
 }
 
-.dark\:bg-yellow-600:is(.theseed-dark-mode *){
+.dark\:bg-yellow-600:is(.thetree-dark-mode *){
   --tw-bg-opacity: 1;
   background-color: rgb(202 138 4 / var(--tw-bg-opacity, 1));
 }
 
-.dark\:text-gray-500:is(.theseed-dark-mode *){
+.dark\:text-gray-500:is(.thetree-dark-mode *){
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 
-.dark\:text-white:is(.theseed-dark-mode *){
+.dark\:text-white:is(.thetree-dark-mode *){
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.dark\:decoration-zinc-300:is(.theseed-dark-mode *){
+.dark\:decoration-zinc-300:is(.thetree-dark-mode *){
   text-decoration-color: #d4d4d8;
 }
 
-.dark\:hover\:bg-neutral-900:hover:is(.theseed-dark-mode *){
+.dark\:hover\:bg-neutral-900:hover:is(.thetree-dark-mode *){
   --tw-bg-opacity: 1;
   background-color: rgb(23 23 23 / var(--tw-bg-opacity, 1));
 }

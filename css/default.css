@@ -12,7 +12,7 @@ pre {
   color: black;
 }
 
-.theseed-dark-mode .Modern header a {
+.thetree-dark-mode .Modern header a {
   color: white;
 }
 
@@ -178,7 +178,7 @@ video {
   background-color: #3B82F6;
 }
 
-.theseed-dark-mode #progress-bar {
+.thetree-dark-mode #progress-bar {
   background-color: white;
 }
 
@@ -222,7 +222,7 @@ video {
   }
 }
 
-.theseed-dark-mode {
+.thetree-dark-mode {
   --background: 0 0% 3.9%;
   --foreground: 0 0% 98%;
   --card: 0 0% 3.9%;
